@@ -97,4 +97,6 @@ if __name__ == '__main__':
     print('sleep')
     time.sleep(2)
     print('bg')
-    left_click()
+    PressKey(0x2E)
+    time.sleep(0.2)
+    ReleaseKey(0x2E)
