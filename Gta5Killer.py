@@ -11,8 +11,6 @@ import time
 
 # 声音提示模块
 import winsound
-
-# 程序退出
 import sys
 
 
@@ -47,7 +45,6 @@ DOWN = 0xD0
 CAPITAL = 0x3A
 ENT = 0x1C
 
-# 按键仓库-END
 
 # a)获取键盘按键-BGN
 keyList = ["\b"]
@@ -61,7 +58,7 @@ def key_check():
         if wapi.GetAsyncKeyState(ord(key)):
             keys.append(key)
     return keys
-# a)获取键盘-END
+
 
 # b)执行按键-BGN
 # C struct redefinitions
@@ -127,7 +124,7 @@ def left_click():
     x = Input(ctypes.c_ulong(0), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-    time.sleep(0.3) # 按驻鼠标左键3秒
+    time.sleep(0.3) # 按驻鼠标左键0.3秒
 
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
@@ -154,8 +151,6 @@ def t_rpg():
 
     left_click()
     time.sleep(0.2)
-
-
 
 #   1. -K- 秒自杀
 def suicide():
@@ -240,6 +235,37 @@ def ceo_hiden():
     buttonNum(3, UP, 0.05)
     buttonNum(1, ENT, 0.1)
 
+#   8. -秒开摩托帮
+def mtb_bgn():
+    buttonNum(1, M, 0.1)
+    buttonNum(8, DOWN, 0.05)
+    buttonNum(3, ENT, 0.1)
+
+#   8. -秒关摩托帮
+def mtb_end():
+    buttonNum(1, M, 0.1)
+    buttonNum(1, ENT, 0.1)
+    buttonNum(1, UP, 0.05)
+    buttonNum(2, ENT, 0.1)
+
+#   9. -BJ- 快速呼叫摩托( 停留在菜单页面 )
+def mtb_car():
+    buttonNum(1, M, 0.1)
+    buttonNum(1, ENT, 0.1)
+
+#   10.-FJ-快速呼叫飞机( 停留在菜单没页面 )
+def airport():
+    buttonNum(1, M, 0.1)
+    buttonNum(3, DOWN, 0.05)
+    buttonNum(1, ENT, 0.1)
+    buttonNum(1, DOWN, 0.05)
+
+def airport_mtb():
+    buttonNum(1, M, 0.1)
+    buttonNum(4, DOWN, 0.05)
+    buttonNum(1, ENT, 0.1)
+    buttonNum(1, DOWN, 0.05)
+
 
 # c)功能调试区域-END
 
@@ -253,25 +279,53 @@ def ceo_hiden():
 # 功能:
 #   0. -Q- 火箭筒快速发射
 #   1. -K- 秒自杀
-#   2. -R- 快速换巴雷特子弹( 并且可以快速连法巴雷特 )
+#   2. -R- 快速换巴雷特子弹( 连续按R键也可以快速使用巴雷特开枪 )
 #   3. -N- 秒购买对应武器子弹( 自动切换非CEO/CEO购买模式 )
 
-#   4. -CEO- 秒开/关CEO( 5~7功能只有在CEO模式下才能执行 )
+#   4. -CEO- 秒开/关CEO( 5~7功能只有在CEO模式下才能执行，及时你是摩托帮也可以直接开启CEO )
 #   5. -X- 秒吃CEO药品
 #   6. -0- 秒购买护甲
 #   7. -CH- CEO隐匿( 3分钟 - 冷却5分钟 )
 
-#   --v2.0即将更新内容
-#   10. -秒开/关摩托帮
-#   11. -快速呼叫摩托( 停留在菜单页面 )
-#   12. -快速呼叫飞机( 停留在菜单没页面 )
+#   --v2.0更新内容
+#   8. -BJ- 秒开/关摩托帮( 即使你是CEO也可以直接开启摩托帮 )
+#   9. -BJ- 快速呼叫摩托( 停留在菜单页面 )
+#   10.-FJ-快速呼叫飞机( 停留在菜单没页面 )
 
 if __name__ == "__main__":
-    print("BGN!!!")
+    print("\
+#   GTA5Killer v2.0( 撕逼玩家专用线上模式 )\n\
+#   反馈意见给作者 - QQ:1069798804\n\
+#   作者更新链接及开源链接: https://github.com/ZTaer/GTA5_Killer\n\
+#   注意: 此程序仅供个人研究学习,恶意使用本程序造成游戏破坏,作者将不承担任何法律责任( 依然执行本程序代表你已同意此协议! )\n\
+#   注意: 此程序完全免费,如果想获得最新版本可以访问上方GitHub链接\n\
+#   注意: 如果你有什么更好的改进意见可以联系上放作者QQ( 加好友留言时输入: GTA5KillerUser )\n\
+#   注意: 开启功能时,必须要'非CEO/摩托帮'状态,并且要使用本程序功能键来开启/关闭'CEO/摩托帮',否则将无法有效检测是否为CEO/摩托帮状态\n\
+    \n\
+# 用法:\n\
+#   0. -KS- 开启功能( 进入游戏中输入即可 )\n\
+#   1. -JS- 结束功能( 结束功能后,再次输入KS依然可以开启功能 )\n\
+#   2. -TC- 退出程序\n\
+    \n\
+# 功能:\n\
+#   0. -Q- 火箭筒快速发射\n\
+#   1. -K- 秒自杀\n\
+#   2. -R- 快速换巴雷特子弹( 连续按R键也可以快速使用巴雷特开枪 )\n\
+#   3. -N- 秒购买对应武器子弹( 自动切换非CEO/CEO购买模式 )\n\
+    \n\
+#   4. -CEO- 秒开/关CEO( 5~7功能只有在CEO模式下才能执行，即使你是摩托帮也可以直接开启CEO )\n\
+#   5. -X- 秒吃CEO药品\n\
+#   6. -0- 秒购买护甲\n\
+#   7. -CH- CEO隐匿( 3分钟 - 冷却5分钟 )\n\
+    \n\
+#   10. -BJ- 快速呼叫摩托( 即使你是CEO也可以直接开启摩托帮，停留在呼叫菜单页面 )\n\
+#   11. -FJ-快速呼叫飞机( 停留在菜单页面 )"\
+        )
+    print("\n!!!开启成功 - OPEN SUCCESSFULLY!!!")
     while( True ):
         ceoNum = 0  # ceo开启关闭开关
+        mtbNum = 0 # mtb开关
         bgn = False
-        LJ = False
         keysIng = key_check()
         if( 'K' in keysIng and 'S' in keysIng ):
             bgn = True
@@ -294,13 +348,19 @@ if __name__ == "__main__":
                 r_gun_reset()
                 continue
             elif( 'N' in keysIng ):
-                if( ceoNum ):
+                if( ceoNum or mtbNum ):
                     ceo_rock_buy()
                 else:
                     rock_buy()
                 continue
             elif ('C' in keysIng and 'E' in keysIng and 'O' in keysIng ):
-                if(not ceoNum):
+                if(not ceoNum and mtbNum):
+                    mtb_end()
+                    mtbNum = 0
+                    ceo_bgn()
+                    ceoNum = 1
+                    continue
+                elif(not ceoNum and not mtbNum ):
                     ceo_bgn()
                     ceoNum = 1
                     continue
@@ -317,9 +377,36 @@ if __name__ == "__main__":
             elif ('C' in keysIng and 'H' in keysIng and ceoNum):
                 ceo_hiden()
                 continue
-
+            elif ('B' in keysIng and 'J' in keysIng ):
+                if(not mtbNum and ceoNum):
+                    ceo_end()
+                    ceoNum = 0
+                    mtb_bgn()
+                    mtb_car()
+                    mtbNum = 1
+                    continue
+                elif(not mtbNum and not ceoNum ):
+                    mtb_bgn()
+                    mtb_car()
+                    mtbNum = 1
+                    continue
+                else:
+                    mtb_end()
+                    mtbNum = 0
+                    continue
+            elif ('F' in keysIng and 'J' in keysIng):
+                if(mtbNum or ceoNum):
+                    airport_mtb()
+                    continue
+                else:
+                    airport()
+                    continue
 
             elif( 'J' in keysIng and 'S' in keysIng ):
+                if(ceoNum):
+                    ceo_end()
+                    ceoNum = 0
+                    continue
                 try:
                     winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
                     winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
