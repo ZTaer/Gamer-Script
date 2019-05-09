@@ -4,7 +4,7 @@
 --- getkeys.py: 获取按键<br/>
 --- directkeys.py: 执行按键鼠活动<br/>
 --- keys.py: 键鼠16进制对照表<br/>
-<h3>GTA5_Killer v2.0</h3>
+<h3>GTA5_Killer v2.1</h3>
 <h4># 功能:</h4>
 #   GTA5Killer v2.0( 撕逼玩家专用线上模式 )<br/>
 #   反馈意见给作者 - QQ:1069798804<br/>
