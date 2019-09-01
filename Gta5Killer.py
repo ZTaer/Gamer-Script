@@ -301,7 +301,7 @@ def hot_toggle( door ):
         buttonNum(1, SPACE, 0.05)
         buttonNum(1, M, 0.1)
 
-#   12. -E- 拉下/拉上战术目镜( 必须要先开启热感 )
+#   12. -Z- 拉下/拉上战术目镜( 必须要先开启热感 )
 def hot_f11():
     buttonNum(1, F11, 1)
 
@@ -310,7 +310,7 @@ def hot_f11():
 if __name__ == "__main__":
     print("\
 \n\
-#   GTA5Killer v2.1( 撕逼玩家专用线上模式 )\n\
+#   GTA5Killer v3.1( 撕逼玩家专用线上模式 )\n\
 #   作者: __OO7__ ( 反馈意见给作者: QQ - 1069798804 )\n\
 #   作者更新链接及开源链接: https://github.com/ZTaer/GTA5_Killer\n\
 #   注意: 此程序仅供个人研究学习,恶意使用本程序造成游戏破坏,作者将不承担任何法律责任( 依然执行本程序代表你已同意此协议! )\n\
