@@ -45,6 +45,8 @@ DOWN = 0xD0
 CAPITAL = 0x3A
 ENT = 0x1C
 
+F11 = 0x57
+SPACE = 0x39
 
 # a)获取键盘按键-BGN
 keyList = ["\b"]
@@ -276,10 +278,39 @@ def tel_bx():
     buttonNum(1, ENT, 0.1)
     buttonNum(8, UP, 0.08)
 
+
+
+#   11. -EF- 开启/关闭热感
+def hot_toggle( door ):
+    if( door ):
+        buttonNum(1, M, 0.1)
+        buttonNum(4, DOWN, 0.05)
+        buttonNum(1, ENT, 0.1)
+        buttonNum(1, DOWN, 0.1)
+        buttonNum(1, ENT, 0.1)
+        buttonNum(4, DOWN, 0.05)
+        buttonNum(1, SPACE, 0.05)
+        buttonNum(1, M, 0.1)
+    else:
+        buttonNum(1, M, 0.1)
+        buttonNum(3, DOWN, 0.05)
+        buttonNum(1, ENT, 0.1)
+        buttonNum(1, DOWN, 0.1)
+        buttonNum(1, ENT, 0.1)
+        buttonNum(4, DOWN, 0.05)
+        buttonNum(1, SPACE, 0.05)
+        buttonNum(1, M, 0.1)
+
+#   12. -Z- 拉下/拉上战术目镜( 必须要先开启热感 )
+def hot_f11():
+    buttonNum(1, F11, 1)
+
+
+
 if __name__ == "__main__":
     print("\
 \n\
-#   GTA5Killer v2.1( 撕逼玩家专用线上模式 )\n\
+#   GTA5Killer v3.1( 撕逼玩家专用线上模式 )\n\
 #   作者: __OO7__ ( 反馈意见给作者: QQ - 1069798804 )\n\
 #   作者更新链接及开源链接: https://github.com/ZTaer/GTA5_Killer\n\
 #   注意: 此程序仅供个人研究学习,恶意使用本程序造成游戏破坏,作者将不承担任何法律责任( 依然执行本程序代表你已同意此协议! )\n\
@@ -306,12 +337,17 @@ if __name__ == "__main__":
 #   8. -BJ- 秒开摩托帮( 即使你是CEO也可以直接开启摩托帮 )\n\
 #   9. -FJ- 快速呼叫摩托( 停留在菜单页面 )\n\
     \n\
-#   10. -HJ- 呼叫保险( 停留在联系人界面 )"\
+#   10. -HJ- 呼叫保险( 停留在联系人界面 )\n\
+    \n\
+#   11. -EF- 开启/关闭热感\n\
+#   12. -Z- 拉下/拉上战术目镜( 必须要先开启热感 )"\
+
         )
     print("\n!!!开启成功 - OPEN SUCCESSFULLY!!!( 注意: 直接进入游戏,不要关闭本窗口,最小化即可 )")
     while( True ):
         ceoNum = 0  # ceo开启关闭开关
         mtbNum = 0 # mtb开关
+        hotNum = 0 # 热感开关
         bgn = False
         keysIng = key_check()
         if( 'K' in keysIng and 'S' in keysIng ):
@@ -399,7 +435,13 @@ if __name__ == "__main__":
             elif ('H' in keysIng and 'J' in keysIng):
                 tel_bx()
                 continue
+            elif ( 'E' in keysIng and 'F' in keysIng ):
+                hotNum = 1 if hotNum == 0 else  0
+                hot_toggle( ceoNum or mtbNum )
 
+            elif ( 'Z' in keysIng and hotNum):
+                hot_f11()
+                continue
 
             elif( 'J' in keysIng and 'S' in keysIng ):
                 if(ceoNum):
