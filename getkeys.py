@@ -4,7 +4,7 @@ import win32api as wapi
 import time
 
 keyList = ["\b"]
-for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.'£$/\\":
+for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ [] 1234567890,.'£$/\\":
     keyList.append(char)
 
 def key_check():

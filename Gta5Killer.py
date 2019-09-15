@@ -310,7 +310,7 @@ def hot_f11():
 if __name__ == "__main__":
     print("\
 \n\
-#   GTA5Killer v3.1( 撕逼玩家专用线上模式 )\n\
+#   GTA5Killer v3.2( 撕逼玩家专用线上模式 )\n\
 #   作者: __OO7__ ( 反馈意见给作者: QQ - 1069798804 )\n\
 #   作者更新链接及开源链接: https://github.com/ZTaer/GTA5_Killer\n\
 #   注意: 此程序仅供个人研究学习,恶意使用本程序造成游戏破坏,作者将不承担任何法律责任( 依然执行本程序代表你已同意此协议! )\n\
@@ -340,7 +340,8 @@ if __name__ == "__main__":
 #   10. -HJ- 呼叫保险( 停留在联系人界面 )\n\
     \n\
 #   11. -EF- 开启/关闭热感\n\
-#   12. -Z- 拉下/拉上战术目镜( 必须要先开启热感 )"\
+#   12. -EG- 战术目镜控制开关\n\
+#   13. -Z- 拉下/拉上战术目镜( 由EG来控制是否启动此功能 )"\
 
         )
     print("\n!!!开启成功 - OPEN SUCCESSFULLY!!!( 注意: 直接进入游戏,不要关闭本窗口,最小化即可 )")
@@ -435,11 +436,19 @@ if __name__ == "__main__":
             elif ('H' in keysIng and 'J' in keysIng):
                 tel_bx()
                 continue
+
             elif ( 'E' in keysIng and 'F' in keysIng ):
-                hotNum = 1 if hotNum == 0 else  0
+                hotNum = 1
                 hot_toggle( ceoNum or mtbNum )
 
-            elif ( 'Z' in keysIng and hotNum):
+            elif ( 'E' in keysIng and 'G' in keysIng ):
+                if( hotNum == 1 ):
+                    hotNum = 0
+                else:
+                    hotNum = 1
+                winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+
+            elif ( 'Z' in keysIng and hotNum == 1 ):
                 hot_f11()
                 continue
 
