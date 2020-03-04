@@ -169,28 +169,14 @@ def t_rpg():
     left_click()
     time.sleep(0.2)
 
-#   1. -K- 秒自杀
-def suicide():
-    buttonNum(1, M, 0.1)
-    buttonNum(2, UP, 0.05)
-
-    PressKey(C)
-    time.sleep(0.035)
-    PressKey(CAPITAL)
-    PressKey(ENT)
-    time.sleep(0.035)
-    ReleaseKey(ENT)
-    ReleaseKey(CAPITAL)
-    ReleaseKey(C)
-
-#   2. -R- 快速换巴雷特子弹
+#   1. -R- 快速换巴雷特子弹
 def r_gun_reset():
     buttonNum(1,O5,0.05)
     buttonNum(1,O9, 0.05)
     left_click()
     time.sleep(0.15)
 
-#   3. -N- 非CEO秒购买对应武器子弹
+#   2. -N- 非CEO秒购买对应武器子弹
 def rock_buy():
     buttonNum(1, M, 0.1)
     buttonNum(2, DOWN, 0.05)
@@ -234,15 +220,8 @@ def ceo_eat_medicine():
     buttonNum(1, DOWN, 0.05)
     buttonNum(1, ENT, 0.1)
 
-# 6. -I- 手枪快速切换( 用原子小手枪 )
-def i_gun_reset():
-    buttonNum(1,O5,0.05)
-    buttonNum(1,O6, 0.05)
 
-    left_click()
-    time.sleep(0.1)
-
-#   7. -CH- CEO隐匿
+#   6. -CH- CEO隐匿
 def ceo_hiden():
     buttonNum(1, M, 0.1)
     buttonNum(1, ENT, 0.1)
@@ -251,7 +230,7 @@ def ceo_hiden():
     buttonNum(3, UP, 0.05)
     buttonNum(1, ENT, 0.1)
 
-#   8. -秒开摩托帮
+#   7. -秒开摩托帮
 def mtb_bgn():
     buttonNum(1, M, 0.1)
     buttonNum(7, DOWN, 0.05)
@@ -278,39 +257,10 @@ def tel_bx():
     buttonNum(1, ENT, 0.1)
     buttonNum(8, UP, 0.08)
 
-
-
-#   11. -EF- 开启/关闭热感
-def hot_toggle( door ):
-    if( door ):
-        buttonNum(1, M, 0.1)
-        buttonNum(4, DOWN, 0.05)
-        buttonNum(1, ENT, 0.1)
-        buttonNum(1, DOWN, 0.1)
-        buttonNum(1, ENT, 0.1)
-        buttonNum(4, DOWN, 0.05)
-        buttonNum(1, SPACE, 0.05)
-        buttonNum(1, M, 0.1)
-    else:
-        buttonNum(1, M, 0.1)
-        buttonNum(3, DOWN, 0.05)
-        buttonNum(1, ENT, 0.1)
-        buttonNum(1, DOWN, 0.1)
-        buttonNum(1, ENT, 0.1)
-        buttonNum(4, DOWN, 0.05)
-        buttonNum(1, SPACE, 0.05)
-        buttonNum(1, M, 0.1)
-
-#   12. -Z- 拉下/拉上战术目镜( 必须要先开启热感 )
-def hot_f11():
-    buttonNum(1, F11, 1)
-
-
-
 if __name__ == "__main__":
     print("\
 \n\
-#   GTA5Killer v3.2( 撕逼玩家专用线上模式 )\n\
+#   GTA5Killer v4.0( 撕逼玩家专用线上模式 )\n\
 #   作者: __OO7__ ( 反馈意见给作者: QQ - 1069798804 )\n\
 #   作者更新链接及开源链接: https://github.com/ZTaer/GTA5_Killer\n\
 #   注意: 此程序仅供个人研究学习,恶意使用本程序造成游戏破坏,作者将不承担任何法律责任( 依然执行本程序代表你已同意此协议! )\n\
@@ -325,25 +275,19 @@ if __name__ == "__main__":
     \n\
 # 功能:\n\
 #   0. -Q- 火箭筒快速发射\n\
-#   1. -K- 秒自杀\n\
-#   2. -R- 快速换巴雷特子弹( 连续按R键也可以快速使用巴雷特开枪 )\n\
-#   3. -N- 秒购买对应武器子弹( 自动切换非CEO/CEO购买模式 )\n\
-#   4. -I- 手枪快速切换( 用原子小手枪 )\n\
+#   1. -R- 快速换巴雷特子弹( 连续按R键也可以快速使用巴雷特开枪 )\n\
+#   2. -N- 秒购买对应武器子弹( 自动切换非CEO/CEO购买模式 )\n\
     \n\
-#   5. -CEO- 秒开/关CEO( 5~7功能只有在CEO模式下才能执行，即使你是摩托帮也可以直接开启CEO )\n\
-#   6. -X- 秒吃CEO药品\n\
-#   7. -CH- CEO隐匿( 3分钟 - 冷却5分钟 )\n\
+#   3. -CEO- 秒开/关CEO( 5~7功能只有在CEO模式下才能执行，即使你是摩托帮也可以直接开启CEO )\n\
+#   4. -X- 秒吃CEO药品\n\
+#   5. -CH- CEO隐匿( 3分钟 - 冷却5分钟 )\n\
     \n\
-#   8. -BJ- 秒开摩托帮( 即使你是CEO也可以直接开启摩托帮 )\n\
-#   9. -FJ- 快速呼叫摩托( 停留在菜单页面 )\n\
+#   6. -BJ- 秒开摩托帮( 即使你是CEO也可以直接开启摩托帮 )\n\
+#   7. -FJ- 快速呼叫摩托( 停留在菜单页面 )\n\
     \n\
-#   10. -HJ- 呼叫保险( 停留在联系人界面 )\n\
-    \n\
-#   11. -EF- 开启/关闭热感\n\
-#   12. -EG- 战术目镜控制开关\n\
-#   13. -Z- 拉下/拉上战术目镜( 由EG来控制是否启动此功能 )"\
-
-        )
+#   8. -HJ- 呼叫保险( 停留在联系人界面 )\n\
+"\
+          )
     print("\n!!!开启成功 - OPEN SUCCESSFULLY!!!( 注意: 直接进入游戏,不要关闭本窗口,最小化即可 )")
     while( True ):
         ceoNum = 0  # ceo开启关闭开关
@@ -365,14 +309,8 @@ if __name__ == "__main__":
             if( 'Q' in keysIng ):
                 t_rpg()
                 continue
-            elif( 'K' in keysIng ):
-                suicide()
-                continue
             elif( 'R' in keysIng ):
                 r_gun_reset()
-                continue
-            elif ('I' in keysIng):
-                i_gun_reset()
                 continue
             elif( 'N' in keysIng ):
                 if( ceoNum or mtbNum ):
@@ -435,21 +373,6 @@ if __name__ == "__main__":
 
             elif ('H' in keysIng and 'J' in keysIng):
                 tel_bx()
-                continue
-
-            elif ( 'E' in keysIng and 'F' in keysIng ):
-                hotNum = 1
-                hot_toggle( ceoNum or mtbNum )
-
-            elif ( 'E' in keysIng and 'G' in keysIng ):
-                if( hotNum == 1 ):
-                    hotNum = 0
-                else:
-                    hotNum = 1
-                winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
-
-            elif ( 'Z' in keysIng and hotNum == 1 ):
-                hot_f11()
                 continue
 
             elif( 'J' in keysIng and 'S' in keysIng ):
