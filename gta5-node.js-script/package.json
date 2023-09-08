@@ -19,13 +19,16 @@
     "start": "nodemon server.js",
     "debug": "ndb server.js",
     "pkg": "npm install -g pkg",
-    "build": "pkg server.js -o build/server.exe"
+    "build": "rm build/server.exe & pkg server.js -o build/server.exe"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "keypress": "^0.2.1",
     "lodash": "^4.17.21",
-    "ndb": "^1.1.5"
+    "ndb": "^1.1.5",
+    "robotjs": "^0.6.0",
+    "uiohook-napi": "^1.5.2"
   },
   "engines": {
     "node": ">=10.6.0"
